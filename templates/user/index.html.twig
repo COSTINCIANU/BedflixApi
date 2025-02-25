@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User !{% endblock %}
+
+{% block body %}
+
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+   <div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-6 col-md-10">
+								<div class="heading_s1">
+									<h3>Créer un compte</h3>
+								</div>
+
+								{{ form_start (form) }}
+								{{ form_errors (form) }}
+								{{ form_row (email) }}
+								{{ form_row (plainPassword) }}
+			    </div>
+			</div>
+</div>
+{% endblock %}

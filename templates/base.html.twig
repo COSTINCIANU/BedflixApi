@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% block title %}
+        Welcome!
+      {% endblock %}
+    </title>
+    <link rel="icon" href="favicon.svg" />
+    {# {% block stylesheets %}
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    {% endblock %} #}
+    {% block stylesheets %}  {% endblock %}
+
+    {% block javascripts %}
+      {{ importmap('app') }}
+    {% endblock %}
+  </head>
+  <body class="bg-black text-white">
+    <nav class="bg-black p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <a href="{{ path('app_home') }}"><img style="width: 10vw;margin-left: 2.5vw;" src="{{ asset('images/bedflix-logo.png') }}" alt="Logo de Bedflix" /></a>
+        <div class="space-x-4">
+          <a href="#" class="text-white hover:text-red-600">Movies</a>
+          <a href="#" class="text-white hover:text-red-600">TV Shows</a>
+          <a href="#" class="text-white hover:text-red-600">My List</a>
+        </div>
+      </div>
+    </nav>
+
+    {% block body %}
+
+    {% endblock %}
+
+    <footer class="bg-black text-gray-500 py-8 mt-8">
+      <div class="container mx-auto text-center">
+        <p>&copy; {{ 'now'|date('Y') }} Bedflix. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

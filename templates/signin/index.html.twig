@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>S'inscrire</h1>
+        {{ form(form) }}
+
+        <script src="https://www.google.com/recaptcha/api.js?render=RECAPTCHA3_KEY"></script>
+<script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('RECAPTCHA3_KEY', {action: 'signin'}).then(function(token) {
+            document.getElementById('recaptchaResponse').value = token;
+        });
+    });
+</script>
+
+{# <form method="post">
+    <input type="hidden" name="g-recaptcha-response" id="recaptchaResponse">
+    <button type="submit">Se connecter</button>
+</form> #}
+    </div>
+
+{% endblock %}
