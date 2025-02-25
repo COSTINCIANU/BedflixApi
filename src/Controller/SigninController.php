@@ -53,17 +53,17 @@ final class SigninController extends AbstractController
 
             // Afficher un message pour dire 'OK' ! avec un return render 
             $this->addFlash('success', 'Le compte a bien été créée');
-            // return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_home');
         } else {
             // Afficher une erreur 
         }   
 
         // Vérifie si une réponse existe avant d'appeler getScore()
         $recaptchaResponse = $recaptcha3Validator->getLastResponse();
-       // test l'utilisateur est un bot 
+        // test l'utilisateur est un bot 
         if ($recaptchaResponse && $recaptchaResponse()->getScore() < 0.5) { 
-           $msg = "L'utilisateur est un bot"; 
-           $notice = "danger"; 
+            $msg = "L'utilisateur est un bot"; 
+            $notice = "danger"; 
         } else {
             $msg = "Bienvenue !";
             $notice = "success";
